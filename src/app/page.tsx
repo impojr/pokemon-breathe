@@ -11,12 +11,24 @@ export default function Home() {
 
   const [state, setState] = useState(POSITION.WELCOME);
 
-  function beginGuidedBreathing() {
-    setState(POSITION.BREATHING);
+  function beginGuidedBreathing(e: React.MouseEvent) {
+    var opacity = window
+      .getComputedStyle(e.currentTarget)
+      .getPropertyValue("opacity");
+
+    if (opacity == 1) {
+      setState(POSITION.BREATHING);
+    }
   }
 
-  function restartGuidedBreathing() {
-    setState(POSITION.WELCOME);
+  function restartGuidedBreathing(e: React.MouseEvent) {
+    var opacity = window
+      .getComputedStyle(e.currentTarget)
+      .getPropertyValue("opacity");
+
+    if (opacity == 1) {
+      setState(POSITION.WELCOME);
+    }
   }
 
   return (
