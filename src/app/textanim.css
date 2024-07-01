@@ -1,0 +1,75 @@
+.textanim-content {
+    top: 86.8%;
+    height: 120px;
+    overflow:hidden;
+    /* font-size: 35px; */
+    line-height: 40px;
+    color: white;
+  }
+    
+  .textanim-container {
+      /* font-weight: 600; */
+      overflow: hidden;
+      height: 40px;
+      padding: 0 40px;
+  }
+  
+  .textanim-container p {
+        display: inline;
+        float: left;
+        margin: 0;
+  }
+  
+  .textanim-container ul {
+        margin-top: 0;
+        /* padding-left: 110px; */
+        text-align: center;
+        list-style: none;
+        width: 300px;
+        animation-name: change;
+        animation-delay: 15s;
+        animation-duration: 15s;
+        animation-iteration-count: 5;
+  }
+  
+  .textanim-container ul li {
+    opacity: 0;
+          line-height:40px;
+          margin:0;
+          animation-name: fadeIn, fadeOut;
+          animation-delay: 14s, 85s;
+          animation-duration: 1s, 1s;
+          animation-fill-mode: forwards;
+          animation-timing-function: linear;
+  }
+
+  @keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+  
+  
+  @keyframes change {
+    0%     {transform:translate3d(0,0,0);}
+    25%    {transform:translate3d(0,0,0);}
+    31.25% {transform:translate3d(0,-33%,0);}
+    43.75% {transform:translate3d(0,-33%,0);}
+    50%    {transform:translate3d(0,-66%,0);}
+    75%    {transform:translate3d(0,-66%,0);}
+    81.25% {transform:translate3d(0,-33%,0);}
+    93.75% {transform:translate3d(0,-33%,0);}
+    100%   {transform:translate3d(0,0,0);}
+  }

@@ -1,95 +1,74 @@
+"use client";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { useState } from "react";
+import TextAnim from "./textanimation";
 
 export default function Home() {
+  enum POSITION {
+    WELCOME = "WELCOME",
+    BREATHING = "BREATHING",
+  }
+
+  const [state, setState] = useState(POSITION.WELCOME);
+
+  function beginGuidedBreathing() {
+    setState(POSITION.BREATHING);
+  }
+
+  function restartGuidedBreathing() {
+    setState(POSITION.WELCOME);
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+    <main>
+      <Image
+        className="backgroundImage"
+        src="/Test.png"
+        fill={true}
+        alt="Snow"
+        style={{ objectFit: "cover" }}
+      />
+      <div className="breathingCircle"></div>
+      {state == POSITION.WELCOME && (
+        <p id="helloText" className="bottom-centre text-center"></p>
+      )}
+      {state == POSITION.BREATHING && (
+        <p id="breathCountdown" className="white-text"></p>
+      )}
+      {state == POSITION.BREATHING && (
+        <p
+          id="breathingIntroText"
+          className="bottom-centre white-text text-center"
+        >
+          Let&apos;s do 5 deep breaths together...
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+      )}
+      {state == POSITION.BREATHING && (
+        <p
+          id="breathingOutroText"
+          className="bottom-centre white-text text-center"
+        ></p>
+      )}
+      {state == POSITION.BREATHING && <TextAnim />}
+      <button
+        className={
+          state == POSITION.WELCOME
+            ? "imageBtn fadeIn bottom-centre"
+            : "imageBtn fadeOut bottom-centre"
+        }
+        onClick={beginGuidedBreathing}
+      >
+        Begin Guided Breathing
+      </button>
+      {state == POSITION.BREATHING && (
+        <button
+          id="breatheAgainBtn"
+          className="imageBtn bottom-centre"
+          onClick={restartGuidedBreathing}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          Breathe Again
+        </button>
+      )}
     </main>
   );
 }
