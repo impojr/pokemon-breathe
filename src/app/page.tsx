@@ -16,8 +16,24 @@ export default function Home() {
       .getComputedStyle(e.currentTarget)
       .getPropertyValue("opacity");
 
-    if (opacity == 1) {
+    if (opacity == "1") {
       setState(POSITION.BREATHING);
+    }
+  }
+
+  function toggleSound() {
+    var soundButton = document.getElementById("toggleSoundButton");
+    var bgm = document.getElementById("bgm");
+    var campfire = document.getElementById("campfire");
+
+    if (bgm.paused) {
+      bgm.play();
+      campfire.play();
+      soundButton.src = "/volume-high-solid.svg";
+    } else {
+      bgm.pause();
+      campfire.pause();
+      soundButton.src = "/volume-xmark-solid.svg";
     }
   }
 
@@ -26,13 +42,24 @@ export default function Home() {
       .getComputedStyle(e.currentTarget)
       .getPropertyValue("opacity");
 
-    if (opacity == 1) {
+    if (opacity == "1") {
       setState(POSITION.WELCOME);
     }
   }
 
   return (
     <main>
+      <Image
+        id="toggleSoundButton"
+        src="/volume-xmark-solid.svg"
+        width={30}
+        height={30}
+        alt="Toggle Sound Button"
+        style={{ cursor: "pointer" }}
+        onClick={toggleSound}
+      />
+      <audio id="bgm" src=".\bgm.mp3" controls loop />
+      <audio id="campfire" src=".\campfire.mp3" controls loop />
       <Image
         className="backgroundImage"
         src="/Test.png"

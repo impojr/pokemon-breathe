@@ -167,6 +167,16 @@
   transform: translate(-50%, -50%); /* center the button */
 }
 
+#toggleSoundButton {
+  position: absolute; /* set button to an absolute position */
+  top: 4%; /* adjust the top position of the button */
+  left: 91%; /* adjust the left position of the button */
+  transform: translate(-50%, -50%); /* center the button */
+  z-index: 2;
+  color: grey;
+}
+
+
 
 #helloText {
 	animation: pulse 20s linear;
