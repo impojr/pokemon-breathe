@@ -23,11 +23,13 @@ export default function Home() {
   }
 
   function toggleSound() {
-    var soundButton = document.getElementById("toggleSoundButton");
-    var bgm = document.getElementById("bgm");
-    var campfire = document.getElementById("campfire");
+    var soundButton = document.getElementById(
+      "toggleSoundButton"
+    ) as HTMLImageElement;
+    var bgm = document.getElementById("bgm") as HTMLAudioElement;
+    var campfire = document.getElementById("campfire") as HTMLAudioElement;
 
-    if (bgm.paused) {
+    if (bgm != null && bgm.paused) {
       bgm.play();
       campfire.play();
       soundButton.src = "/volume-high-solid.svg";
