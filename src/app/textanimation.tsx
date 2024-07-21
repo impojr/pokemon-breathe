@@ -1,4 +1,5 @@
 import React from "react";
+import "./textanim.css";
 
 function TextAnim() {
   return (

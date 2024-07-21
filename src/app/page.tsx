@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import TextAnim from "./textanimation";
+import Breathing from "./breathing";
 
 export default function Home() {
   enum POSITION {
@@ -49,6 +50,75 @@ export default function Home() {
 
   return (
     <main>
+      <div className="accordion" id="creditAccordion">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="headingOne">
+            <button
+              className="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+              style={{ fontSize: "0.75rem" }}
+            >
+              Credits
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            className="accordion-collapse collapse"
+            aria-labelledby="headingOne"
+            data-bs-parent="#creditAccordion"
+          >
+            <div className="accordion-body">
+              <p>
+                <a href="https://www.instagram.com/pixeladdy/?hl=en">
+                  pixeladdy
+                </a>{" "}
+                - art
+              </p>
+              <p>
+                <a href="https://fontawesome.com">Fontawesome</a> - speaker
+                images
+              </p>
+              <p>
+                <a href="https://fontawesome.com">Fontawesome</a> - speaker
+                images
+              </p>
+              <p>
+                <a href="https://uppbeat.io/t/tranquilium/night-waves">
+                  Uppbeat
+                </a>{" "}
+                - Music
+              </p>
+              <p>
+                <a href="https://pixabay.com/sound-effects/campfire-crackling-fireplace-sound-119594/">
+                  SoundsForYou
+                </a>{" "}
+                - VFX
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="row mt-4">
+        <div
+          id="hardAccAlert"
+          className=" col-md-6 offset-md-3 col-8 offset-2 alert alert-warning alert-dismissible fade show z5"
+          role="alert"
+        >
+          This page works best with browser hardware acceleration turned off.
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+
       <Image
         id="toggleSoundButton"
         src="/volume-xmark-solid.svg"
@@ -62,12 +132,12 @@ export default function Home() {
       <audio id="campfire" src=".\campfire.mp3" controls loop />
       <Image
         className="backgroundImage"
-        src="/Test.png"
+        src="/bg.gif"
         fill={true}
         alt="Snow"
         style={{ objectFit: "cover" }}
       />
-      <div className="breathingCircle"></div>
+      {state == POSITION.BREATHING && <Breathing />}
       {state == POSITION.WELCOME && (
         <p id="helloText" className="bottom-centre text-center"></p>
       )}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Press_Start_2P } from "next/font/google";
 import "./globals.css";
-import "./textanim.css";
 import "bootstrap/dist/css/bootstrap.css";
 import BootstrapClient from "@/components/BootstrapClient.js";
 

@@ -169,7 +169,7 @@
 
 #toggleSoundButton {
   position: absolute; /* set button to an absolute position */
-  top: 4%; /* adjust the top position of the button */
+  margin-top: 1.5rem;
   left: 91%; /* adjust the left position of the button */
   transform: translate(-50%, -50%); /* center the button */
   z-index: 2;
@@ -285,6 +285,10 @@
   100%   { opacity: 0;}
 }
 
+.z5 {
+  z-index: 5;
+}
+
 #breathingOutroText::after {
 	content: "";
   animation-fill-mode: forwards;
@@ -297,4 +301,16 @@
   50%    { content: "Great work...";}
   58.33% { content: "Come back whenever you need a break...";}
   100%   { content: "Come back whenever you need a break...";}
+}
+
+#creditAccordion {
+  position: absolute;
+  z-index: 4;
+  margin-left: 2rem;
+  font-size: 0.5rem;
+}
+
+#hardAccAlert {
+  font-size: 0.7rem;
+  position: absolute;
 }

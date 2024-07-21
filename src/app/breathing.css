@@ -1,0 +1,72 @@
+#breathing-button {
+    width: 10px;
+    height: 10px;
+    padding: 12px;
+    margin: 50px auto;
+    border-radius: 50px;
+    opacity: 0;
+    /* animation: breathing 15s ease-in-out 5 normal;
+    animation-delay: 15s; */
+    background: #ffffff;
+    position: absolute;
+    top: 48.2%;
+    left: 49.2%;
+    transform: translate(-50%, -50%);
+
+    animation-name: fadeIn, breathing, fadeOut;
+    animation-delay: 15s, 15s, 85s;
+    animation-duration: 1s, 15s, 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear, ease-in-out, linear;
+    animation-iteration-count: 1, 5, 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+  }
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  
+  28.13% {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+  }
+
+  46.88% {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+  }
+  
+  78.13% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
