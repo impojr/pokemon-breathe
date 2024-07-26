@@ -13,13 +13,9 @@ export default function Home() {
 
   const [state, setState] = useState(POSITION.LOADING);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setState(POSITION.WELCOME);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  function imageLoaded() {
+    setState(POSITION.WELCOME);
+  }
 
   function beginGuidedBreathing(e: React.MouseEvent) {
     var opacity = window
@@ -152,6 +148,7 @@ export default function Home() {
         fill={true}
         alt="Snow"
         style={{ objectFit: "cover" }}
+        onLoad={imageLoaded}
       />
       {state == POSITION.BREATHING && <Breathing />}
       {state == POSITION.WELCOME && (

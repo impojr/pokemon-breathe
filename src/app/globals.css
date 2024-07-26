@@ -326,8 +326,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  animation: fadeOut 1s linear;
-  animation-delay: 3s;
-  animation-fill-mode: forwards;
 }
