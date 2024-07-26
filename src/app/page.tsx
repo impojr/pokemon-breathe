@@ -1,16 +1,25 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextAnim from "./textanimation";
 import Breathing from "./breathing";
 
 export default function Home() {
   enum POSITION {
+    LOADING = "LOADING",
     WELCOME = "WELCOME",
     BREATHING = "BREATHING",
   }
 
-  const [state, setState] = useState(POSITION.WELCOME);
+  const [state, setState] = useState(POSITION.LOADING);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setState(POSITION.WELCOME);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   function beginGuidedBreathing(e: React.MouseEvent) {
     var opacity = window
@@ -52,6 +61,11 @@ export default function Home() {
 
   return (
     <main>
+      {state == POSITION.LOADING && (
+        <div id="loadingDiv">
+          <p>Loading...</p>
+        </div>
+      )}
       <div className="accordion" id="creditAccordion">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">

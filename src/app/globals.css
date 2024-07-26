@@ -314,3 +314,20 @@
   font-size: 0.7rem;
   position: absolute;
 }
+
+#loadingDiv {
+  width: 100%;
+  height: 100%;
+  background-color: beige;
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: fadeOut 1s linear;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
+}
